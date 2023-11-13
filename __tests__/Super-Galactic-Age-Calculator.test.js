@@ -1,8 +1,10 @@
-import Age from './../src/Super-Galactic-Age-Calculator.js';
+import { Age } from './../src/Super-Galactic-Age-Calculator.js';
 
 describe('Age', () => {
   test('should correctly determine earth age', () => {
-    const earthAge = new Age(10);
-    expect(earthAge).toEqual("10");
+    const ageInstance = new Age(10);
+    const earthAge = ageInstance.earthAge;
+
+    expect(earthAge).toEqual(10);
   });
 });
