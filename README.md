@@ -1,4 +1,4 @@
-# New-Template
+# Super-Galactic-Age-Calculator
 
 
 #### By Nikkita Torres
