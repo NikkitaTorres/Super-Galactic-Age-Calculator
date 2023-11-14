@@ -1,4 +1,4 @@
-export class Age{
+export default class Age{
   constructor(earthAge) {
     this.earthAge = earthAge;
     this.mercuryAge = this.calculateMercuryAge();
