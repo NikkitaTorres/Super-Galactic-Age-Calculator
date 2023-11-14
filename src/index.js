@@ -24,14 +24,39 @@ document.getElementById('ageForm3').addEventListener('submit', function (event) 
 
   const ageInstance = new Age(currentAge);
 
-  const ageDifference = calculateAgeDifference(ageInstance.earthAge, youngerAge);
-  document.getElementById('youngerResult').innerHTML = `Age Difference: ${ageDifference} years`;
+  const ageDifferences = calculateAgeDifference(ageInstance, youngerAge);
+
+  document.getElementById('youngerResult').innerHTML = `
+    Age Difference (Earth): ${ageDifferences.earthAge} years<br>
+    Age Difference (Mercury): ${ageDifferences.mercuryAge} years<br>
+    Age Difference (Venus): ${ageDifferences.venusAge} years<br>
+    Age Difference (Mars): ${ageDifferences.marsAge} years<br>
+    Age Difference (Jupiter): ${ageDifferences.jupiterAge} years
+  `;
 });
 
-function calculateAgeDifference(currentAge, youngerAge) {
-  if (youngerAge >= currentAge) {
-    return "Invalid input. The younger age should be less than the current age in";
+function calculateAgeDifference(ageInstance, youngerAge) {
+  if (youngerAge >= ageInstance.earthAge) {
+    return {
+      earthAge: "Invalid input. The younger age should be less than the current age.",
+      mercuryAge: "Invalid input.",
+      venusAge: "Invalid input.",
+      marsAge: "Invalid input.",
+      jupiterAge: "Invalid input."
+    };
   }
 
-  return currentAge - youngerAge;
+  const ageDifferenceEarth = ageInstance.earthAge - youngerAge;
+  const ageDifferenceMercury = ageInstance.calculateMercuryAge() - (youngerAge * 0.24);
+  const ageDifferenceVenus = ageInstance.calculateVenusAge() - (youngerAge * 0.62);
+  const ageDifferenceMars = ageInstance.calculateMarsAge() - (youngerAge * 1.88);
+  const ageDifferenceJupiter = ageInstance.calculateJupiterAge() - (youngerAge * 11.86);
+
+  return {
+    earthAge: ageDifferenceEarth,
+    mercuryAge: ageDifferenceMercury,
+    venusAge: ageDifferenceVenus,
+    marsAge: ageDifferenceMars,
+    jupiterAge: ageDifferenceJupiter
+  };
 }
