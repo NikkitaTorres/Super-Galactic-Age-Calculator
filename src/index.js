@@ -16,6 +16,53 @@ document.getElementById('ageForm').addEventListener('submit', function (event) {
   `;
 });
 
+// Future Age Section
+document.getElementById('ageForm2').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const currentAge = document.getElementById('currentAge').value;
+  const futureAge = document.getElementById('futureAge').value;
+
+  const ageInstance = new Age(currentAge);
+
+  const futureAgeDifference = calculateFutureAgeDifference(ageInstance, futureAge);
+
+  document.getElementById('futureResult').innerHTML = `
+    Age Difference (Earth): ${futureAgeDifference.earthAge} years<br>
+    Age Difference (Mercury): ${futureAgeDifference.mercuryAge} years<br>
+    Age Difference (Venus): ${futureAgeDifference.venusAge} years<br>
+    Age Difference (Mars): ${futureAgeDifference.marsAge} years<br>
+    Age Difference (Jupiter): ${futureAgeDifference.jupiterAge} years
+  `;
+});
+
+function calculateFutureAgeDifference(ageInstance, futureAge) {
+  if (futureAge <= ageInstance.earthAge) {
+    return {
+      earthAge: "Invalid input. The future age should be greater than the current age in",
+      mercuryAge: "Invalid input.",
+      venusAge: "Invalid input.",
+      marsAge: "Invalid input.",
+      jupiterAge: "Invalid input."
+    };
+  }
+
+  const ageDifferenceEarth = futureAge - ageInstance.earthAge;
+  const ageDifferenceMercury = (futureAge * 0.24) - ageInstance.calculateMercuryAge();
+  const ageDifferenceVenus = (futureAge * 0.62) - ageInstance.calculateVenusAge();
+  const ageDifferenceMars = (futureAge * 1.88) - ageInstance.calculateMarsAge();
+  const ageDifferenceJupiter = (futureAge * 11.86) - ageInstance.calculateJupiterAge();
+
+  return {
+    earthAge: ageDifferenceEarth,
+    mercuryAge: ageDifferenceMercury,
+    venusAge: ageDifferenceVenus,
+    marsAge: ageDifferenceMars,
+    jupiterAge: ageDifferenceJupiter
+  };
+}
+
+//Past Age Section
 document.getElementById('ageForm3').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -38,7 +85,7 @@ document.getElementById('ageForm3').addEventListener('submit', function (event) 
 function calculateAgeDifference(ageInstance, youngerAge) {
   if (youngerAge >= ageInstance.earthAge) {
     return {
-      earthAge: "Invalid input. The younger age should be less than the current age.",
+      earthAge: "Invalid input. The younger age should be less than the current age in",
       mercuryAge: "Invalid input.",
       venusAge: "Invalid input.",
       marsAge: "Invalid input.",
