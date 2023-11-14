@@ -16,7 +16,6 @@ document.getElementById('ageForm').addEventListener('submit', function (event) {
   `;
 });
 
-// Future Age Section
 document.getElementById('ageForm2').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -62,7 +61,6 @@ function calculateFutureAgeDifference(ageInstance, futureAge) {
   };
 }
 
-//Past Age Section
 document.getElementById('ageForm3').addEventListener('submit', function (event) {
   event.preventDefault();
 
