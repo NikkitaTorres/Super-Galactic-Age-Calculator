@@ -24,6 +24,7 @@ This is a project to allow the user to calculate their age in "Galactic Years". 
 2. Run "npm install" in the console to dowload all dependencies (Babel, Bootstrap, ESLint, Jest, Webpack).
 3. Run "npm run start" in the console to launch the application.
 4. Enter a number to calculate age in Galactic years.
+5. To run jest tests, enter the command "npm run test" into the console.
 
 ## Known Bugs
 
