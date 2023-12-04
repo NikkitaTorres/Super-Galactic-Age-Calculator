@@ -21,8 +21,8 @@ This is a project to allow the user to calculate their age in "Galactic Years". 
 ## Setup/Installation Requirements
 
 1. Clone [this](https://github.com/NikkitaTorres/Super-Galactic-Age-Calculator.git) repository to your desktop.
-2. Run "NPM install" in the console to dowload all dependencies (Babel, Bootstrap, ESLint, Jest, Webpack).
-3. Run "NPM Start" in the console to launch the application.
+2. Run "npm install" in the console to dowload all dependencies (Babel, Bootstrap, ESLint, Jest, Webpack).
+3. Run "npm run start" in the console to launch the application.
 4. Enter a number to calculate age in Galactic years.
 
 ## Known Bugs
